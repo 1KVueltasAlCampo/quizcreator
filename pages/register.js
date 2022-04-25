@@ -1,7 +1,27 @@
-import Layout from "./layouts/layout"
+import Layout from "./layouts/layout";
+import Link from 'next/link';
+
+
+let studentsData=require('./json/students.json');
+console.log(studentsData);
+console.log(typeof(studentsData));
+
+
+function handleRegister(){
+   
+    
+    let value = {
+        email:document.getElementById('exampleInputEmail1').value,
+        password: document.getElementById('exampleInputPassword1').value
+    }
+
+    studentsData.students.push(value);
+    console.log(studentsData);
+    
+    
+}
 
 const Register=()=>(
-
     <Layout>  
         <h1>Register</h1>  
         <div>
@@ -28,7 +48,9 @@ const Register=()=>(
             <label className="form-check-label" for="exampleCheck1">Student</label>
         </div>
         <div>
-            <button type="submit" className="btn btn-primary">Register</button>
+        <Link href="/">
+        <button onClick={handleRegister} type="submit" className="btn btn-primary">Register</button>
+        </Link> 
         </div>
         
         
@@ -37,5 +59,7 @@ const Register=()=>(
 
     </Layout>
 )
+
+
 
 export default Register;
