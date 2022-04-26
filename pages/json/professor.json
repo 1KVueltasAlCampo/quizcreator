@@ -1,0 +1,8 @@
+{
+    "professor":[ 
+     {
+            "email": "admin",
+         "password": "admin"
+     }
+ ] 
+ }

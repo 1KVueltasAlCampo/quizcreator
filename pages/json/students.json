@@ -1,6 +1,8 @@
 {
-   "students":[{
-       "email": "aaaaa",
-       "password": "bbbb"
-   }] 
+   "students":[ 
+    {
+           "email": "admin",
+        "password": "admin"
+    }
+] 
 }
