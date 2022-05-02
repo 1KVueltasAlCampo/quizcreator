@@ -2,62 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from './layouts/layout'
 
-let professorData=require('./json/professor.json');
-let studentsData=require('./json/students.json');
-
-function handleLogin(){
-   
-            let value = {
-                email:document.getElementById('exampleInputEmail1').value,
-                password: document.getElementById('exampleInputPassword1').value
-            }
-            let confirmation= false;
-
-            if((document.getElementById('professor'))){
-
-                  for(let i=0;i<professorData.professor.length;i++){
-                    if(value.email==professorData.professor.at(i).email){
-                        alert("This email is already in use");
-                        confirmation=true;
-                    }
-                    else if(value.password==professorData.professor.at(i).password){
-                        alert("this password is already in use")
-                        confirmation=true;
-                    }
-                    else if((value.password||value.email)==""){
-                        alert("Don't enter void values")
-                        confirmation=false
-                    }
-                }
-              }
-              else if((document.getElementById('student'))){
-
-                for(let i=0;i<studentsData.students.length;i++){
-                  if(value.email==studentsData.students.at(i).email){
-                      confirmation=true;
-                  }
-                  else if(value.password==studentsData.students.at(i).password){
-                      confirmation=true;
-                  }
-                  else if((value.password||value.email)==""){
-                      alert("Don't enter void values")
-                      confirmation=false
-                  }
-              }
-              }
-
-            if(confirmation){
-                professorData.professor.push(value);
-                console.log(professorData);
-            }
-            else{
-                alert("Please enter valid values")
-            }
-            
-  
-  
-}
-
 export default function Home(){
 
 
@@ -94,7 +38,7 @@ export default function Home(){
                       <label className="form-check-label" for="exampleCheck1">Student</label>
                   </div>
                   <div>
-                      <button onClick={handleLogin} type="submit" className="btn btn-primary">Log in</button>
+                      <button  type="submit" className="btn btn-primary">Log in</button>
                   </div>
                   <br></br>
                   <small id="emailHelp" className="form-text text-muted">If you don't have an account, you can register yourself </small>

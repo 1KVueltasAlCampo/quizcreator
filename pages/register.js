@@ -1,78 +1,6 @@
 import Layout from "./layouts/layout";
 import Link from 'next/link';
 
-
-let studentsData=require('./json/students.json');
-console.log(studentsData);
-console.log(typeof(studentsData));
-
-let professorData=require('./json/professor.json');
-console.log(professorData);
-console.log(typeof(professorData));
-
-function handleRegister(){
-
-    let value = {
-        email:document.getElementById('exampleInputEmail1').value,
-        password: document.getElementById('exampleInputPassword1').value
-    }
-
-    let confirmation= true;
-
-        if(document.getElementById('professor').checked){
-            for(let i=0;i<professorData.professor.length;i++){
-                if(value.email==professorData.professor.at(i).email){
-                    alert("This email is already in use");
-                    confirmation=false;
-                }
-                else if(value.password==professorData.professor.at(i).password){
-                    alert("this password is already in use")
-                    confirmation=false;
-                }
-                else if((value.password||value.email)==""){
-                    alert("Don't enter void values")
-                    confirmation=false
-                }
-            }
-        }
-            else if(document.getElementById('student').checked){
-
-                for(let i=0;i<studentsData.students.length;i++){
-                    if(value.email==studentsData.students.at(i).email){
-                        alert("This email is already in use");
-                        confirmation=false;
-                    }
-                    else if(value.password==studentsData.students.at(i).password){
-                        alert("this password is already in use")
-                        confirmation=false;
-                    }
-                    else if((value.password||value.email)==""){
-                        alert("Don't enter void values")
-                        confirmation=false
-                    }
-                }
-
-            
-        }
-                if((document.getElementById('student').checked)&&(document.getElementById('professor').checked)){
-                    alert("Choose just one role, professor or student");
-                }
-                else if(!((document.getElementById('student').checked)||(document.getElementById('professor').checked))){
-                    alert("Choose a role to be registered, professor or student");
-                }
-                else if(confirmation&&(document.getElementById('student').checked)){
-                studentsData.students.push(value);
-                console.log(studentsData);
-                }
-                else if(confirmation&&(document.getElementById('professor').checked)){
-                    professorData.professor.push(value);
-                }
-                else{
-                    alert("Please enter valid values")
-                }       
-        
-}
-
 const Register=()=>(
     <Layout>  
         <title>Quiz</title>
@@ -102,7 +30,7 @@ const Register=()=>(
         </div>
         <div>
         <Link href="/">
-        <button onClick={handleRegister} type="submit" className="btn btn-primary">Register</button>
+        <button  type="submit" className="btn btn-primary">Register</button>
         </Link> 
         </div>
         
