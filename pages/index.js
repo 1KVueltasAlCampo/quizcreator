@@ -2,10 +2,16 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from './layouts/layout'
 
-export default function Home(){
 
-
+export default function Home(props){
+  
+  if(props.person.length!=0){
+    console.log("fuck");
+  }
+  
   return(
+    
+    
     <div>
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"
       /> 
@@ -31,11 +37,11 @@ export default function Home(){
                   </div>
                   <div className="mb-3 form-check">
                       <input type="checkbox" className="form-check-input" id="professor"/>
-                      <label className="form-check-label" for="exampleCheck1">Professor</label>
+                      <label className="form-check-label" htmlFor="exampleCheck1">Professor</label>
                   </div>
                   <div className="mb-3 form-check">
                       <input type="checkbox" className="form-check-input" id="student"/>
-                      <label className="form-check-label" for="exampleCheck1">Student</label>
+                      <label className="form-check-label" htmlFor="exampleCheck1">Student</label>
                   </div>
                   <div>
                       <button  type="submit" className="btn btn-primary">Log in</button>
@@ -52,4 +58,14 @@ export default function Home(){
                 </div>
   )
 }
+
+export const getServerSideProps= async () =>{
+  const res=await fetch("http://localhost:3000/api/person")
+  const person=await res.json();
+    return{
+        props:{ 
+          person: person,
+      },
+    };
+};
 

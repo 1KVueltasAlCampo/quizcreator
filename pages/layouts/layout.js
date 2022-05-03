@@ -23,10 +23,10 @@ export default function Layout(props) {
                            <Link href="/"><a className="nav-link" >Home </a></Link> 
                         </li>
                         <li className="nav-item active">
-                           <Link href="/exam"><a className="nav-link" >Exams example </a></Link> 
+                           <Link href=""><a className="nav-link" >Exams example </a></Link> 
                         </li>
                         <li className="nav-item active">
-                           <Link href="/editor"><a className="nav-link" >Editor example </a></Link> 
+                           <Link href=""><a className="nav-link" >Editor example </a></Link> 
                         </li>
                         </ul>
                     </div>

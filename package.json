@@ -11,10 +11,12 @@
   "dependencies": {
     "create-next-app": "^12.1.5",
     "next": "12.1.5",
+    "pg": "^8.7.3",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },
   "devDependencies": {
+    "@types/pg": "^8.6.5",
     "@types/react": "^18.0.6",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5"
