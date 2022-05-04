@@ -32,6 +32,6 @@ export default async function person(req, res){
         default:
                 return res.status(400).json("invalid method");
       }
-  
+    //d0 = q1wq0 = [q1+q0]w
 }
 
