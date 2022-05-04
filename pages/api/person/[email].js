@@ -35,6 +35,6 @@ switch(method){
   default:
           return res.status(400).json("invalid method");
 }
-
+//Prueba la nueva tecnologia PowerShell multiplataforma https://aka.ms/pscore6
    
 }
